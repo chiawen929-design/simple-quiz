@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple Sentence 判斷小考｜粉色版</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="confetti" aria-hidden="true"></div>
+
+  <main class="page">
+    <header class="header">
+      <h1>Simple Sentence 判斷小考 <span class="badge">粉色版</span></h1>
+      <p class="subtitle">判斷句子是不是 <strong>simple sentence</strong>（一個主詞＋一個謂語動詞）。</p>
+    </header>
+
+    <section class="panel settings" id="settings">
+      <div class="row">
+        <label for="qCount">題數：</label>
+        <select id="qCount" aria-label="選擇本次測驗題數">
+          <option value="10">10 題</option>
+          <option value="15">15 題</option>
+          <option value="20" selected>20 題</option>
+          <option value="30">30 題</option>
+          <option value="40">40 題</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="shuffleMode">題型混合：</label>
+        <select id="shuffleMode" aria-label="選擇題型混合模式">
+          <option value="mixed" selected>正確 / 錯誤 混合</option>
+          <option value="half">各半（盡量一半正確、一半錯誤）</option>
+        </select>
+      </div>
+      <div class="row">
+        <button id="startBtn" class="btn primary">開始小考 ✨</button>
+      </div>
+      <div class="row meta">
+        <span id="bankSize">題庫：— 題</span>
+        <span id="bestScore">最佳成績：—</span>
+      </div>
+    </section>
+
+    <section id="quiz" class="panel quiz hidden" aria-live="polite">
+      <div class="progress">
+        <div id="bar" class="bar" style="width:0%"></div>
+      </div>
+      <div class="quiz-top">
+        <div class="pill" id="counter">第 1/20 題</div>
+        <div class="pill score" id="scorePill">得分 0</div>
+      </div>
+
+      <div class="card" id="card">
+        <p id="question" class="question">—</p>
+      </div>
+
+      <div class="choices">
+        <button class="btn choice" data-choice="true">✅ 正確（是 simple sentence）</button>
+        <button class="btn choice" data-choice="false">❌ 錯誤（不是 simple sentence）</button>
+      </div>
+
+      <div id="feedback" class="feedback" aria-live="assertive" role="alert"></div>
+
+      <div class="nav">
+        <button id="nextBtn" class="btn">下一題 ▶</button>
+      </div>
+    </section>
+
+    <section id="result" class="panel result hidden">
+      <h2 id="resultTitle">作答完成！</h2>
+      <p id="resultMsg" class="result-msg">—</p>
+      <div class="result-actions">
+        <button id="retryBtn" class="btn">再考一次 🔁</button>
+        <button id="backBtn" class="btn ghost">回到設定 ⬅</button>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <details>
+        <summary>如何擴充題庫？（給家長/老師）</summary>
+        <p>開啟 <code>questions.js</code>，在 <code>QUESTION_BANK</code> 陣列中，用下方格式新增：</p>
+        <pre><code>{ text: 'She likes ice cream.', isSimple: true },
+{ text: 'I like apples, and she likes oranges.', isSimple: false }</code></pre>
+        <p>存檔後重新整理頁面即可。</p>
+      </details>
+    </footer>
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
