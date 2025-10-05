@@ -1,7 +1,19 @@
-// 題庫（初階版）：true = 是 simple sentence；false = 不是完整句（片語/缺主詞或動詞）
-// 規則：不使用 and / but / so / because / when / while 等連接詞；每題只是一句話讓孩子判斷。
+// 題庫（學校同款：判斷 sentence vs. fragment）
+// 規則：句子簡短、初階、無 and/but/so/because/when/while 等連接詞。
+// isSimple: true = 完整句 (Sentence), false = 片語/不完整 (Fragment)
+
 const QUESTION_BANK = [
-  // ✅ 正確的 Simple Sentence (50)
+  // ===== 學校原題 8 題 =====
+  { text: 'My name is Teacher Adam.', isSimple: true },
+  { text: 'Talking to the man.', isSimple: false },
+  { text: 'He is sleeping at the.', isSimple: false },
+  { text: 'Do you want to build a snowman?', isSimple: true },
+  { text: 'He ate lots of broccoli.', isSimple: true },
+  { text: 'started to sing in the shower.', isSimple: false },
+  { text: 'I scored 100% on my.', isSimple: false },
+  { text: 'A fish in the sea.', isSimple: false },
+
+  // ===== 正確的 Simple Sentences (50) =====
   { text: 'The dog runs.', isSimple: true },
   { text: 'She is happy.', isSimple: true },
   { text: 'He reads a book.', isSimple: true },
@@ -54,7 +66,7 @@ const QUESTION_BANK = [
   { text: 'She draws well.', isSimple: true },
   { text: 'The soup is warm.', isSimple: true },
 
-  // ❌ 錯誤的（不是完整句）(50)
+  // ===== 錯誤的（Fragment / 不完整）(50) =====
   { text: 'Like apples.', isSimple: false },
   { text: 'Running fast.', isSimple: false },
   { text: 'Very tall.', isSimple: false },
